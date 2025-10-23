@@ -3,18 +3,16 @@
 .text
 _start:
 
-    mov rax, 0
-
-    ;# while (rax < 3) {
-    ;#     rax++;
+    ;# for (int i = 0; i < 10; i++) {
+    ;#     BODY
     ;# }
 
-loop:
-    cmp rax, 3
-    je exit
-    ;# jge exit
-    inc rax
+    mov rax, 0      ;# int i = 0
 
+loop:
+    cmp rax, 10     ;# i < 10
+    je exit
+    inc rax         ;# i++
     jmp loop
 
 exit:

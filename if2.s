@@ -24,11 +24,15 @@ _start:
 
     mov rax, 4
 
-    ;# if (rax == 3) print("rax is 3!")
+    ;# if (x > 1 && x < 5) {
+    ;#     do something
+    ;# }
 
     ;# IF <condition>
-    cmp rax, 3
-    jne exit
+    cmp rax, 1      ;# if (rax <= 1) exit
+    jle exit
+    cmp rax, 5      ;# if (rax >= 5) exit
+    jge exit
 
     ;# BODY
 print:
@@ -45,5 +49,5 @@ exit:
     syscall
 
 .data
-    s1: .ascii "rax is 3!"
+    s1: .ascii "rax is between 1 and 5!"
     s1len = . - s1
